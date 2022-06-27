@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    background-color: #f0e68a !important;
+    background-color: #FAF4B7 !important;
 }
 
 
@@ -71,7 +71,7 @@ button{
     bottom: -190%;
     border-radius: 33%;
     transition: all 1.4s linear;
-    animation: waves 3.4s linear infinite;
+    animation: waves 8.4s linear infinite;
 }
 
 .lightblue{
@@ -96,4 +96,28 @@ button{
         border-radius: 30%;
         /* bottom:-80px; */
     }
+}
+
+.LineH1{
+    display: block;
+    position: absolute;
+    width: 315px;
+    height: 435px;
+    left: 120px;
+    top: 133px;
+
+    background: #7B6079;
+    border-radius: 5px;
+}
+
+.LineH2{
+    display: block;
+    position: absolute;
+    width: 315px;
+    height: 435px;
+    left: 572px;
+    top: 133px;
+
+    background: #DE8971;
+    border-radius: 5px;
 }
