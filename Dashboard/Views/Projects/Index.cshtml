@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Dashboard.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+<h1 class="text-center">Проекты</h1>
+ <h5 class="text-center" >
+     <input id="ID" readonly>
+ </h5>
+ <style>
+     #ID{
+         border: none;
+         align-self: center;
+     }
+ </style>
+ </div>
+ 
+<script>
+    addEventListener('DOMContentLoaded', function() {
+    var tr = document.querySelectorAll('tr');
+    let input = document.querySelector("#ID");
+    input.value=" "+tr.length-1+ " Проектов";
+    });
+</script>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectionNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectionNavigation.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

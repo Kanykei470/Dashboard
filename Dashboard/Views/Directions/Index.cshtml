@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Dashboard.Models.Direction>
+
+<link rel="stylesheet"  href="Ds.css">
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+<h1 class="text-center">Направления</h1>
+ <h5 class="text-center" >
+     <input id="ID" readonly>
+ </h5>
+ <style>
+     #ID{
+         border: none;
+         align-self: center;
+     }
+ </style>
+ </div>
+ 
+<script>
+    addEventListener('DOMContentLoaded', function() {
+    var tr = document.querySelectorAll('tr');
+    let input = document.querySelector("#ID");
+    input.value=" "+tr.length-1+ " Направления";
+    });
+</script>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="box">
+    <div class="wave lightblue"></div>
+</div>
+<script>
+    var wave =document.querySelector('.wave');
+    var bottom=-170;
+
+    window.addEventListener('load',function(){
+        move();
+    });
+
+    function move(){
+        var id =setInterval(frame,2000);
+    }
+
+    function frame(){
+        if(bottom>=-120){
+            wave.style.bottom=bottom+"%";
+            bottom=bottom-25%;
+        }else{
+             wave.style.bottom=bottom+"%";
+            bottom=bottom--15%;
+        }
+    }
+</script>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Dashboard.Models.Position>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+<h1 class="text-center">Должности</h1>
+ <h5 class="text-center" >
+     <input id="ID" readonly>
+ </h5>
+ <style>
+     #ID{
+         border: none;
+         align-self: center;
+     }
+ </style>
+ </div>
+ 
+<script>
+    addEventListener('DOMContentLoaded', function() {
+    var tr = document.querySelectorAll('tr');
+    let input = document.querySelector("#ID");
+    input.value=" "+tr.length-1+ " Должностей"
+</script>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Position1)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

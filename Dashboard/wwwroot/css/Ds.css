@@ -1,0 +1,99 @@
+body {
+    background-color: #72b9f3 !important;
+}
+
+header {
+    background-color: #f0e68a !important;
+}
+
+
+h1 {
+    color: #FFE162;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Семейство шрифтов */
+    font-weight: lighter; /* Нормальное начертание текста  */
+}
+
+h4 {
+    color: #00FFDd;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Семейство шрифтов */
+    font-weight: normal; /* Нормальное начертание текста  */
+}
+h3 {
+    color: #00FFDd;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Семейство шрифтов */
+    font-weight: normal; /* Нормальное начертание текста  */
+}
+
+dd {
+    color: #232535;
+ 
+    
+}
+dt {
+    color: #232535;
+    
+}
+
+label {
+    color: #232535;
+}
+
+li {
+    color: #FF4C29;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /* Семейство шрифтов */
+    font-weight: 100; /* Нормальное начертание текста  */
+    display: list-item;
+    font-size: small;
+    line-height: normal;
+}
+
+button{
+    color: bisque;
+    border: none;
+}
+
+.box{
+    width: 70px;
+    height: 75px;
+    border: 2px solid white;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 0px 40px black;
+    transform: scale(2);
+}
+
+.wave{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: -50%;
+    bottom: -190%;
+    border-radius: 33%;
+    transition: all 1.4s linear;
+    animation: waves 3.4s linear infinite;
+}
+
+.lightblue{
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        #72b9f3
+    );
+}
+
+@keyframes waves {
+    0%{
+        transform: rotate(0);
+        border-radius: 30%;
+        /* bottom: -170px; */
+    }
+    45%{
+        border-radius: 39%;
+    }
+    100%{
+        transform: rotate(360deg);
+        border-radius: 30%;
+        /* bottom:-80px; */
+    }
+}
