@@ -1,0 +1,1 @@
+"DefaultConnection": "Server=DESKTOP-CGM14HT\\SQLEXPRESS;Database=Dashboard;Trusted_Connection=True;"
