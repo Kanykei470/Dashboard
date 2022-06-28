@@ -101,23 +101,27 @@ button{
 .LineH1{
     display: block;
     position: absolute;
-    width: 315px;
+    width: 380px;
     height: 435px;
-    left: 120px;
-    top: 133px;
+    left: 150px;
+    top: 200px;
 
     background: #7B6079;
     border-radius: 5px;
+    
+    padding-top: 15%;
 }
 
 .LineH2{
     display: block;
     position: absolute;
-    width: 315px;
+    width: 380px;
     height: 435px;
-    left: 572px;
-    top: 133px;
+    left: 800px;
+    top: 200px;
 
     background: #DE8971;
     border-radius: 5px;
+
+    padding-top: 15%;
 }

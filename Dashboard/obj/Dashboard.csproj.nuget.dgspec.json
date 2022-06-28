@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dashboard\\Dashboard\\Dashboard.csproj": {}
+    "C:\\Users\\zg180\\source\\repos\\Dashboard\\Dashboard\\Dashboard\\Dashboard.csproj": {}
   },
   "projects": {
-    "D:\\Dashboard\\Dashboard\\Dashboard.csproj": {
+    "C:\\Users\\zg180\\source\\repos\\Dashboard\\Dashboard\\Dashboard\\Dashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dashboard\\Dashboard\\Dashboard.csproj",
+        "projectUniqueName": "C:\\Users\\zg180\\source\\repos\\Dashboard\\Dashboard\\Dashboard\\Dashboard.csproj",
         "projectName": "Dashboard",
-        "projectPath": "D:\\Dashboard\\Dashboard\\Dashboard.csproj",
-        "packagesPath": "C:\\Users\\Kanykei\\.nuget\\packages\\",
-        "outputPath": "D:\\Dashboard\\Dashboard\\obj\\",
+        "projectPath": "C:\\Users\\zg180\\source\\repos\\Dashboard\\Dashboard\\Dashboard\\Dashboard.csproj",
+        "packagesPath": "C:\\Users\\zg180\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zg180\\source\\repos\\Dashboard\\Dashboard\\Dashboard\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kanykei\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\zg180\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
