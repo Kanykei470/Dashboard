@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Dashboard.Models;
+using Microsoft.Data.SqlClient;
 
 namespace Dashboard.Controllers
 {
@@ -19,11 +20,14 @@ namespace Dashboard.Controllers
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        
+       public async Task<IActionResult> Index(int Id)
         {
-            var dashboardContext = _context.Projects.Include(p => p.DirectionNavigation);
-            return View(await dashboardContext.ToListAsync());
+            var pr= await _context.Projects.FromSqlRaw($"ViewProjects @Id={Id}").ToListAsync();
+            
+            return View(pr);
         }
+
 
         // GET: Projects/Details/5
         public async Task<IActionResult> Details(int? id)
