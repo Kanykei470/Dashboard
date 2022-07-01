@@ -27,29 +27,51 @@
     var tr = document.querySelectorAll('tr');
     let input = document.querySelector("#ID");
     input.value=" "+tr.length+" Направления ";
+    
     });
+
+
+    
 </script>
+
+
+
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form name="forma" asp-controller="Projects" asp-action="Index" method="get"> 
+    <input type="hidden" name="Id" id="Idinput">
+   
+</form>
+
+<script >
+    function func(ID){
+        let a = document.querySelector("#Idinput");
+        a.value=ID;
+        let form = document.forms.forma;
+        form.submit();
+    };
+</script>
 
 @{
 <div class="container-fluid" style="margin-top:10px" >
-    <div class="row display-flex" onclick="location.href='https://localhost:5001/Projects/';" style="cursor: pointer;"&gt;&lt;/div&gt;>
+    <div class="row display-flex"   style="cursor: pointer;"&gt;&lt;/div&gt;>
 
         @foreach (var pur in Model)
         {
-        <div class="col-sm-4" class="box">
+        <div  class="col-sm-4" >
             <table class="table table-bordered" style="border-color:transparent; box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.19);border-top-left-radius:30px;border-top-right-radius:30px;">
-                <tr style="text-align:center">
+                <tr  style="text-align:center">
 
                     <td colspan="2" style="border-color:transparent;">
                        
                          <span style="color:#337ab7">@pur.Name<br />
                          <span style="color:indianred">Completion : </span>@pur.Completion<br/>
                          <span style="color:indianred">Priority : </span>@pur.Priority<br/>
-                       
+                        <span id="Id" style="color:indianred">id : </span>@pur.Id<br/>
+                        <input type="hidden" id="Idpr" value="@pur.Id">
+                        <input type="button" value="B" onclick="func(@pur.Id)">
                     </td>
                  </tr>
             </table>
@@ -57,13 +79,15 @@
         }
         </div>
 </div>
-    }
-
+}
 
 <div class="box">
     <div class="wave lightblue"></div>
 </div>
 <script>
+
+   
+    
     var wave =document.querySelector('.wave');
     var bottom=-170;
 

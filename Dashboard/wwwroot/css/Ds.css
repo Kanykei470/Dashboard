@@ -125,3 +125,49 @@ button{
 
     padding-top: 15%;
 }
+
+
+.TasksTable1{
+    position: absolute;
+    margin-left: -5%;
+    width: 90%;
+    height: 50%;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #FFF9E9;
+}
+
+/* @media(){
+    -webkit-animation: ;
+} */
+
+.TasksTable1 thead{
+    background-color: #232535;
+    text-align: center;
+    color: beige;
+    padding: 15px 20px;
+    border-right: 1px solid beige;
+    /* border-radius: 5%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%; */
+}
+
+.TasksTable1 tr{
+    /* border-radius: 5%; */
+}
+
+.TasksTable1 th{
+    /* text-align: center; */
+    /* padding: 15px 20px; */
+    /* border-bottom: 1px solid #232535; */
+    padding: 10px 15px;
+    border-right: 1px solid beige;
+}
+
+.TasksTable1 td{
+    text-align: center;
+    padding: 10px 15px;
+    border-right: 1px solid #232535;
+}

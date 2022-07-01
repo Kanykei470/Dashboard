@@ -6,19 +6,19 @@
 
 <div>
 <h1 class="text-center">Задачи</h1>
- <h5 class="text-center" >
-     <input id="ID" readonly>
- </h5>
- <style>
-     #ID{
-         border: none;
-         align-self: center;
-           background-color:#72b9f3;
-         outline:none;
-         text-align: center;
-     }
- </style>
- </div>
+<h5 class="text-center" >
+    <input id="ID" readonly>
+</h5>
+<style>
+    #ID{
+        border: none;
+        align-self: center;
+        background-color:#72b9f3;
+        outline:none;
+        text-align: center;
+    }
+</style>
+</div>
  
 <script>
     addEventListener('DOMContentLoaded', function() {
@@ -32,37 +32,49 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="TasksTable1">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @* @Html.DisplayNameFor(model => model.Name) *@
+                Наименование
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Completion)
+                @* @Html.DisplayNameFor(model => model.Completion) *@
+                Выполнено
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Priority)
+                @* @Html.DisplayNameFor(model => model.Priority) *@
+                Приоритет
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOfBegining)
+                @* @Html.DisplayNameFor(model => model.DateOfBegining) *@
+                Дата начала
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOfFinish)
+                @* @Html.DisplayNameFor(model => model.DateOfFinish) *@
+                Дата окончания
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DirectionNavigation)
+                @* @Html.DisplayNameFor(model => model.DirectionNavigation) *@
+                Направление
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmployeeNavigation)
+                @* @Html.DisplayNameFor(model => model.EmployeeNavigation) *@
+                Сотрудник
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MilestoneNavigation)
+                @* @Html.DisplayNameFor(model => model.MilestoneNavigation) *@
+                Веха
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProjectNavigation)
+                @* @Html.DisplayNameFor(model => model.ProjectNavigation) *@
+                Проект
             </th>
-            <th></th>
+            <th>
+                Действия
+            </th>
+            @* <th></th> *@
         </tr>
     </thead>
     <tbody>
@@ -96,9 +108,9 @@
                 @Html.DisplayFor(modelItem => item.ProjectNavigation.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="" asp-action="Edit" asp-route-id="@item.Id"><img src="https://cdn-icons-png.flaticon.com/512/1250/1250925.png" height="20%" width="20%"></a> | 
+                @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> | *@
+                <a asp-action="Delete" asp-route-id="@item.Id"><img src="https://cdn-icons.flaticon.com/png/512/542/premium/542724.png?token=exp=1656569693~hmac=606556cc276c8f79ece07c6c4d23bed0" height="20%" width="20%"></a>
             </td>
         </tr>
 }
