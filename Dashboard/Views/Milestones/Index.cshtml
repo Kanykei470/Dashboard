@@ -29,92 +29,44 @@
 </script>
 
 
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form name="forma" asp-controller="Tasks" asp-action="Index" method="get"> 
+    <input type="hidden" name="Id" id="Idinput">
+   
+</form>
+
+<script >
+    function func(ID){
+        let a = document.querySelector("#Idinput");
+        a.value=ID;
+        let form = document.forms.forma;
+        form.submit();
+    };
+</script>
+
 @{
 <div class="container-fluid" style="margin-top:10px" >
-    <div class="row display-flex" onclick="location.href='https://localhost:5001/Tasks/';" style="cursor: pointer;"&gt;&lt;/div&gt;>
-
+    <div class="row display-flex"   style="cursor: pointer;"&gt;&lt;/div&gt;>
         @foreach (var pur in Model)
         {
-        <div class="col-sm-4" class="box">
-            <table class="table table-bordered" style="border-color:transparent; box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.19);border-top-left-radius:30px;border-top-right-radius:30px;">
-                <tr style="text-align:center">
-
-                    <td colspan="2" style="border-color:transparent;">
-                       
+             <table>
+                <tr>
+            <div class="milestnsMain">
                          <span style="color:#337ab7">@pur.Name<br />
                          <span style="color:indianred">Completion : </span>@pur.Completion<br/>
                          <span style="color:indianred">Priority : </span>@pur.Priority<br/>
                          <span style="color:indianred">Date Of Begining : </span>@pur.DateOfBegining<br/>
                          <span style="color:indianred">Date Of Finish : </span>@pur.DateOfFinish<br/>
-                       
-                    </td>
-                 </tr>
-            </table>
+                            <span id="Id" style="color:indianred">id : </span>@pur.Id<br/>
+                        <input type="hidden" id="Idpr" value="@pur.Id">
+                        <input type="button" value="B" onclick="func(@pur.Id)">
             </div>
+                </tr>
+        </table>
         }
         </div>
 </div>
     }
-@* <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Completion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Priority)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfBegining)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfFinish)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DirectionNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Completion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-            <td>
-                @Html.Encode(string.Format("{0:dd/MM/yyyy}",item.DateOfBegining))
-            </td>
-            <td>
-                @Html.Encode(string.Format("{0:dd/MM/yyyy}",item.DateOfFinish))
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DirectionNavigation.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectNavigation.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@

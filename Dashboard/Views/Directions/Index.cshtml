@@ -11,6 +11,7 @@
  <h5 class="text-center" >
      <input id="ID" readonly>
  </h5>
+
  <style>
      #ID{
          border: none;
@@ -20,26 +21,20 @@
         text-align: center;
      }
  </style>
- </div>
- 
+
+</div>
 <script>
     addEventListener('DOMContentLoaded', function() {
     var tr = document.querySelectorAll('tr');
     let input = document.querySelector("#ID");
     input.value=" "+tr.length+" Направления ";
-    
     });
-
-
-    
 </script>
-
-
-
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <form name="forma" asp-controller="Projects" asp-action="Index" method="get"> 
     <input type="hidden" name="Id" id="Idinput">
    
@@ -57,37 +52,31 @@
 @{
 <div class="container-fluid" style="margin-top:10px" >
     <div class="row display-flex"   style="cursor: pointer;"&gt;&lt;/div&gt;>
-
+   
         @foreach (var pur in Model)
         {
-        <div  class="col-sm-4" >
-            <table class="table table-bordered" style="border-color:transparent; box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.19);border-top-left-radius:30px;border-top-right-radius:30px;">
-                <tr  style="text-align:center">
-
-                    <td colspan="2" style="border-color:transparent;">
-                       
-                         <span style="color:#337ab7">@pur.Name<br />
-                         <span style="color:indianred">Completion : </span>@pur.Completion<br/>
-                         <span style="color:indianred">Priority : </span>@pur.Priority<br/>
-                        <span id="Id" style="color:indianred">id : </span>@pur.Id<br/>
-                        <input type="hidden" id="Idpr" value="@pur.Id">
-                        <input type="button" value="B" onclick="func(@pur.Id)">
-                    </td>
-                 </tr>
+             <table>
+                <tr>
+                         <div class="directnsMain">
+                            <span style="color:#337ab7">@pur.Name<br />
+                            <span style="color:indianred">Completion : </span>@pur.Completion<br/>
+                            <span style="color:indianred">Priority : </span>@pur.Priority<br/>
+                            <span id="Id" style="color:indianred">id : </span>@pur.Id<br/>
+                            <input type="hidden" id="Idpr" value="@pur.Id">
+                            <input type="button" value="B" onclick="func(@pur.Id)">
+                        </div>
+               </tr>
             </table>
-            </div>
         }
-        </div>
+    </div>
 </div>
 }
 
 <div class="box">
     <div class="wave lightblue"></div>
 </div>
-<script>
 
-   
-    
+<script>
     var wave =document.querySelector('.wave');
     var bottom=-170;
 
@@ -109,43 +98,3 @@
         }
     }
 </script>
-
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Completion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Priority)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-foreach (var item in Model) {
-//        <tr>
-//            <td>
-//                @Html.DisplayFor(modelItem => item.Name)
-//            </td>
-//            <td>
-//                @Html.DisplayFor(modelItem => item.Completion)
-//            </td>
-//            <td>
-//                @Html.DisplayFor(modelItem => item.Priority)
-//            </td>
-//            <td>
-//                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-//                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-//                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-//            </td>
-//        </tr>
-//}
-//    </tbody>
-//</table>*@
-
-
-

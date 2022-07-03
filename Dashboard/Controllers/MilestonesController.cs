@@ -19,10 +19,10 @@ namespace Dashboard.Controllers
         }
 
         // GET: Milestones
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int Id)
         {
-            var dashboardContext = _context.Milestones.Include(m => m.DirectionNavigation).Include(m => m.ProjectNavigation);
-            return View(await dashboardContext.ToListAsync());
+            var pr = await _context.Milestones.FromSqlRaw($"ViewMilestones @Id={Id}").ToListAsync();
+            return View(pr);
         }
 
         // GET: Milestones/Details/5

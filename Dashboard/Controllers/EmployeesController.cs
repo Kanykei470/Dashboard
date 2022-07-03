@@ -21,7 +21,8 @@ namespace Dashboard.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Employees.ToListAsync());
+             var dashboardContext = _context.Tasks.Include(t => t.DirectionNavigation).Include(t => t.EmployeeNavigation).Include(t => t.MilestoneNavigation).Include(t => t.ProjectNavigation);
+            return View(await dashboardContext.ToListAsync());
         }
 
         // GET: Employees/Details/5
@@ -146,7 +147,7 @@ namespace Dashboard.Controllers
 
         private bool EmployeeExists(int id)
         {
-            return _context.Employees.Any(e => e.Id == id);
+           return _context.Tasks.Any(e => e.Id == id);
         }
     }
 }
