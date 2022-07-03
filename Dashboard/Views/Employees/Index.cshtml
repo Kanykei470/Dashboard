@@ -1,4 +1,10 @@
-﻿@model IEnumerable<Dashboard.Models.Employee>
+﻿@model IEnumerable<Dashboard.Models.Task>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,8 +19,9 @@
      #ID{
          border: none;
          align-self: center;
-           background-color:#72b9f3;
+         background-color:#72b9f3;
          outline:none;
+        text-align: center;
      }
  </style>
  </div>
@@ -27,54 +34,107 @@
     });
 </script>
 
-<p>
+<div class="d-md-inline-flex">
     <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+    <input  type="text" 
+               class="form-control" 
+               placeholder="Что ищем?"
+               id="txtInputTable">
+</div>
+
+<table class="TasksTable1">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Surname)
+             <th>
+                @* @Html.DisplayNameFor(model => model.EmployeeNavigation) *@
+                Сотрудник
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @* @Html.DisplayNameFor(model => model.Name) *@
+                Наименование
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patronymic)
+                @* @Html.DisplayNameFor(model => model.Completion) *@
+                Выполнено
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Position)
+                @* @Html.DisplayNameFor(model => model.Priority) *@
+                Приоритет
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Photo)
+                @* @Html.DisplayNameFor(model => model.DateOfBegining) *@
+                Дата начала
             </th>
-            <th></th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.DateOfFinish) *@
+                Дата окончания
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.DirectionNavigation) *@
+                Направление
+            </th> 
+            <th>
+                @* @Html.DisplayNameFor(model => model.MilestoneNavigation) *@
+                Веха
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ProjectNavigation) *@
+                Проект
+            </th>
+            <th>
+                Действия
+            </th>
+            @* <th></th> *@
         </tr>
     </thead>
-    <tbody>
+    <tbody id="tableDetails">
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
+             <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNavigation.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Patronymic)
+                @Html.DisplayFor(modelItem => item.Completion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Position)
+                @Html.DisplayFor(modelItem => item.Priority)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Photo)
+               @Html.Encode(string.Format("{0:dd/MM/yyyy}",item.DateOfBegining))
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.Encode(string.Format("{0:dd/MM/yyyy}",item.DateOfFinish))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectionNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MilestoneNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectNavigation.Name)
+            </td>
+            <td>
+                <a class="" asp-action="Edit" asp-route-id="@item.Id"><img src="https://cdn-icons-png.flaticon.com/512/1250/1250925.png" height="20%" width="20%"></a> | 
+                <a asp-action="Delete" asp-route-id="@item.Id"><img src="https://cdn-icons.flaticon.com/png/512/542/premium/542724.png?token=exp=1656569693~hmac=606556cc276c8f79ece07c6c4d23bed0" height="20%" width="20%"></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+
+<script>
+        $(document).ready(function () {
+            $("#txtInputTable").on("keyup", function () {
+                var value = $(this).val().toLowerCase();     
+                $("#tableDetails tr").filter(function () {
+                    $(this).toggle($(this).text()
+                      .toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+</script>

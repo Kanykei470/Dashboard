@@ -171,3 +171,46 @@ button{
     padding: 10px 15px;
     border-right: 1px solid #232535;
 }
+
+
+.milestnsMain{
+    width: 49%;
+    height: auto;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border: 1px solid #232535;
+    background-color: #FFF9E9;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.priority{
+    margin-left: 80%;
+    display: inline-block;
+}
+
+.completion{
+    top: 20%;
+}
+
+.projctsMain{
+    width: 49%;
+    height: auto;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border: 1px solid #232535;
+    background-color: #FFF9E9;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.directnsMain{
+    width: 49%;
+    height: auto;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border: 1px solid #232535;
+    background-color: #FFF9E9;
+    border-radius: 10px;
+    padding-left: 10px;
+}

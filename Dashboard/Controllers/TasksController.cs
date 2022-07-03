@@ -19,10 +19,11 @@ namespace Dashboard.Controllers
         }
 
         // GET: Tasks
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int Id)
         {
-            var dashboardContext = _context.Tasks.Include(t => t.DirectionNavigation).Include(t => t.EmployeeNavigation).Include(t => t.MilestoneNavigation).Include(t => t.ProjectNavigation);
-            return View(await dashboardContext.ToListAsync());
+            var pr= await _context.Tasks.FromSqlRaw($"ViewTasks @Id={Id}").ToListAsync();
+            
+            return View(pr);
         }
 
         // GET: Tasks/Details/5
