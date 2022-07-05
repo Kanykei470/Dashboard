@@ -214,3 +214,29 @@ button{
     border-radius: 10px;
     padding-left: 10px;
 }
+
+.otodvigalka{
+    background-color: #FFF9E9;
+    border: 1px solid #232535;
+    border-radius: 10px; 
+    position: absolute;
+    margin-left: 40.8%;
+    height: 80%;
+    width: 42%;
+
+}
+
+.back{
+    position: absolute;
+    top: 30;
+    left: 30;
+}
+
+.buttons{
+    width: 100%;
+    height: 100%;
+    /* left: 0;
+    right: 0;
+    top: 0; */
+    box-sizing: border-box;
+}

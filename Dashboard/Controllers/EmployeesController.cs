@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Dashboard.Models;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 namespace Dashboard.Controllers
 {
@@ -149,5 +152,30 @@ namespace Dashboard.Controllers
         {
            return _context.Tasks.Any(e => e.Id == id);
         }
+
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+
+
+        // public List<Models.Task> getdata(string connectionString)
+        // {
+        //     List<Models.Task> tsklist=new List<Models.Task>();
+        //     SqlConnection con =new SqlConnection(connectionString);
+        //     string selectSql="SELECT Employee, Project , COUNT(Employee) FROM  Tasks GROUP BY Employee,Project";
+        //     con.Open();
+        //     SqlCommand cmd =new SqlCommand(selectSql,con);
+        //     SqlDataReader dr=cmd.ExecuteReader();
+        //     if(dr != null){
+        //         while(dr.Read()){
+        //             Models.Task task =new Models.Task();
+        //             task.Employee=Convert.ToInt32(dr["Employee"]);
+        //             task.Project=Convert.ToInt32(dr["Project"]);
+        //             tsklist.Add(task);
+        //         }
+        //     }
+        //     return tsklist;
+        // }
     }
 }
