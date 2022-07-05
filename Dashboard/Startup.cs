@@ -28,6 +28,8 @@ namespace Dashboard
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DashboardContext>(options => options.UseSqlServer(connection));
             services.AddControllersWithViews();
+            services.AddRazorPages()
+                .AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,7 @@
 }
 
 <div>
+<a class="back" href="javascript: history.go(-1)"><img src="https://cdn-icons-png.flaticon.com/512/130/130882.png" height="4%" width="4%"/></a>
 <h1 class="text-center">Направления</h1>
  <h5 class="text-center" >
      <input id="ID" readonly>
@@ -51,25 +52,29 @@
 
 @{
 <div class="container-fluid" style="margin-top:10px" >
-    <div class="row display-flex"   style="cursor: pointer;"&gt;&lt;/div&gt;>
+    
+    <div class="otodvigalka"></div>
+        
+        <div class="row display-flex" style="cursor: pointer;"&gt;&lt;/div&gt;>
    
-        @foreach (var pur in Model)
-        {
-             <table>
-                <tr>
+            @foreach (var pur in Model)
+            {
+                <table>
+                    <tr>
                          <div class="directnsMain">
                             <span style="color:#337ab7">@pur.Name<br />
                             <span style="color:indianred">Completion : </span>@pur.Completion<br/>
                             <span style="color:indianred">Priority : </span>@pur.Priority<br/>
                             <span id="Id" style="color:indianred">id : </span>@pur.Id<br/>
                             <input type="hidden" id="Idpr" value="@pur.Id">
-                            <input type="button" value="B" onclick="func(@pur.Id)">
+                            <input class="buttons" type="button" value="B" onclick="func(@pur.Id)">
                         </div>
-               </tr>
-            </table>
-        }
+                    </tr>
+                </table>
+            }
+        </div>
     </div>
-</div>
+@* </div> *@
 }
 
 <div class="box">
