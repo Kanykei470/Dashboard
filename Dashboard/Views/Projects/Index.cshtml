@@ -5,28 +5,29 @@
 }
 
 <div>
-<a class="back" href="javascript: history.go(-1)"><img src="https://cdn-icons-png.flaticon.com/512/130/130882.png" height="4%" width="4%"/></a>
-<h1 class="text-center">Проекты</h1>
- <h5 class="text-center" >
-     <input id="ID" readonly>
- </h5>
+    <a class="back" href="javascript: history.go(-1)"><img src="https://cdn-icons-png.flaticon.com/512/130/130882.png"
+            height="4%" width="4%" /></a>
+    <h1 class="text-center">Проекты</h1>
+    <h5 class="text-center">
+        <input id="ID" readonly>
+    </h5>
 
- <style>
-     #ID{
-         border: none;
-         align-self: center;
-           background-color:#72b9f3;
-         outline:none;
-          text-align: center;
-     }
- </style>
- </div>
- 
+    <style>
+        #ID {
+            border: none;
+            align-self: center;
+            background-color: #72b9f3;
+            outline: none;
+            text-align: center;
+        }
+    </style>
+</div>
+
 <script>
-    addEventListener('DOMContentLoaded', function() {
-    var tr = document.querySelectorAll('tr');
-    let input = document.querySelector("#ID");
-    input.value=" "+tr.length+ " Проектов";
+    addEventListener('DOMContentLoaded', function () {
+        var tr = document.querySelectorAll('tr');
+        let input = document.querySelector("#ID");
+        input.value = "Проектов: " + tr.length;
     });
 </script>
 
@@ -34,36 +35,72 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<form name="forma" asp-controller="Milestones" asp-action="Index" method="get"> 
+<form name="forma" asp-controller="Milestones" asp-action="Index" method="get">
     <input type="hidden" name="Id" id="Idinput">
 </form>
-<script >
-    function func(ID){
+<script>
+    function func(ID) {
         let a = document.querySelector("#Idinput");
-        a.value=ID;
+        a.value = ID;
         let form = document.forms.forma;
         form.submit();
     };
 </script>
 
+
+
 @{
-<div class="container-fluid" style="margin-top:10px" >
-   <div class="row display-flex"   style="cursor: pointer;"&gt;&lt;/div&gt;>
-        @foreach (var pur in Model)
-        {
-             <table>
-            <tr>
-            <div class="projctsMain">                       
-                         <span style="color:#337ab7">@pur.Name<br />
-                         <span style="color:indianred">Completion : </span>@pur.Completion<br/>
-                         <span style="color:indianred">Priority : </span>@pur.Priority<br/>
-                         <span style="color:indianred">Id : </span>@pur.Id<br/>
-                          <input type="hidden" id="Idpr" value="@pur.Id"> 
-                         <input type="button" value="B" onclick="func(@pur.Id)">
+    <div class="container-fluid" style="margin-top:10px">
+
+        <div class="otodvigalka">
+
+            <div class="infos">
+
+                <input type="checkbox" name="по исполнителям" value="по исполнителям" class="chbox1">по исполнителям
+                <input type="checkbox" value="по дате" class="chbox2">по дате
+                <br />
+
+                <select class="sel1">исполнитель</select>
+                <br />
+
+                <select class="sel21" onselect="дата начала">дата начала</select>
+                <select class="sel22" onselect="дата окончания">дата окончания</select>
+                <br />
+
+                <div class="info1">
+
+                </div>
+
+                <div class="info2">
+
+                </div>
+
+
             </div>
-            </tr>
-            </table>
-        }
+
         </div>
-</div>
+
+        <div @*class="row display-flex"*@ style="cursor: pointer;" &gt;&lt;/div&gt;>
+            <div class="gridCss">
+                @foreach (var pur in Model)
+                {
+                    @* <table>
+                        <tr> *@
+                    <div class="projctsMain">
+                        <span class="nameOf1" style="color:#337ab7">@pur.Name<br />
+                            <input type="button" value="B" onclick="func(@pur.Id)">
+                            <div class="comPri">
+                                <span style="color:indianred">Completion : @pur.Completion</span>
+                                <span style="color:indianred">Priority : @pur.Priority</span><br />
+                            </div>
+                            @* <span style="color:indianred">Id : </span>@pur.Id<br />
+                                <input type="hidden" id="Idpr" value="@pur.Id"> *@
+
+                    </div>
+                    @* </tr>
+                        </table> *@
+                }
+            </div>
+        </div>
+    </div>
 }

@@ -5,27 +5,28 @@
 }
 
 <div>
-<a class="back" href="javascript: history.go(-1)"><img src="https://cdn-icons-png.flaticon.com/512/130/130882.png" height="4%" width="4%"/></a>
-<h1 class="text-center">Вехи</h1>
- <h5 class="text-center" >
-     <input id="ID" readonly>
- </h5>
- <style>
-     #ID{
-         border: none;
-         align-self: center;
-           background-color:#72b9f3;
-         outline:none;
-          text-align: center;
-     }
- </style>
- </div>
- 
+    <a class="back" href="javascript: history.go(-1)"><img src="https://cdn-icons-png.flaticon.com/512/130/130882.png"
+            height="4%" width="4%" /></a>
+    <h1 class="text-center">Вехи</h1>
+    <h5 class="text-center">
+        <input id="ID" readonly>
+    </h5>
+    <style>
+        #ID {
+            border: none;
+            align-self: center;
+            background-color: #72b9f3;
+            outline: none;
+            text-align: center;
+        }
+    </style>
+</div>
+
 <script>
-    addEventListener('DOMContentLoaded', function() {
-    var tr = document.querySelectorAll('tr');
-    let input = document.querySelector("#ID");
-    input.value=" "+tr.length+ " Вех";
+    addEventListener('DOMContentLoaded', function () {
+        var tr = document.querySelectorAll('tr');
+        let input = document.querySelector("#ID");
+        input.value = "Вех: " + tr.length;
     });
 </script>
 
@@ -34,40 +35,47 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<form name="forma" asp-controller="Tasks" asp-action="Index" method="get"> 
+<form name="forma" asp-controller="Tasks" asp-action="Index" method="get">
     <input type="hidden" name="Id" id="Idinput">
-   
+
 </form>
 
-<script >
-    function func(ID){
+<script>
+    function func(ID) {
         let a = document.querySelector("#Idinput");
-        a.value=ID;
+        a.value = ID;
         let form = document.forms.forma;
         form.submit();
     };
 </script>
 
 @{
-<div class="container-fluid" style="margin-top:10px" >
-    <div class="row display-flex"   style="cursor: pointer;"&gt;&lt;/div&gt;>
-        @foreach (var pur in Model)
-        {
-             <table>
-                <tr>
-            <div class="milestnsMain">
-                         <span style="color:#337ab7">@pur.Name<br />
-                         <span style="color:indianred">Completion : </span>@pur.Completion<br/>
-                         <span style="color:indianred">Priority : </span>@pur.Priority<br/>
-                         <span style="color:indianred">Date Of Begining : </span>@pur.DateOfBegining<br/>
-                         <span style="color:indianred">Date Of Finish : </span>@pur.DateOfFinish<br/>
-                            <span id="Id" style="color:indianred">id : </span>@pur.Id<br/>
-                        <input type="hidden" id="Idpr" value="@pur.Id">
-                        <input type="button" value="B" onclick="func(@pur.Id)">
+    <div class="container-fluid" style="margin-top:10px">
+        <div @*class="row display-flex"*@ style="cursor: pointer;" &gt;&lt;/div&gt;>
+            <div class="gridCss">
+                @foreach (var pur in Model)
+                {
+                    @* <table>
+                        <tr> *@
+                    <div class="milestnsMain">
+                        <span class="nameOfM1" style="color:#337ab7">@pur.Name<br />
+                            <div>
+                                <span style="color:indianred">Date Of Begining : @pur.DateOfBegining</span><br />
+                                <span style="color:indianred">Date Of Finish : @pur.DateOfFinish</span><br />
+                            </div>
+                            <input type="button" onclick="func(@pur.Id)">
+                            <div class="comPri">
+                                <span style="color:indianred">Completion : @pur.Completion</span>
+                                <span style="color:indianred">Priority : @pur.Priority</span><br />
+                            </div>
+                            @* <span id="Id" style="color:indianred">id : </span>@pur.Id<br />
+                                <input type="hidden" id="Idpr" value="@pur.Id"> *@
+
+                    </div>
+                    @* </tr>
+                        </table> *@
+                }
             </div>
-                </tr>
-        </table>
-        }
         </div>
-</div>
-    }
+    </div>
+}
