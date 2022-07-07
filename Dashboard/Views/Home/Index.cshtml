@@ -1,13 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Dashboard-Menu";
+﻿@model Dashboard.Models.Task
+@{
+    ViewData["Title"] = "Menu";
 }
 
 <div class="text-center">
-    <h1>Dashboard<h1>
-<div class="LineH1" onclick=location.href='/Directions' style="cursor: pointer;"&gt;&lt;/div&gt;>
-                         <span style="color:#337ab7">Направления<br />
+    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form method="post" id="form">
+            <input type="hidden" name="id" />
+            <input type="file" name="formFile" id="formFile" />
+            <input type="submit" value="Импорт" class="btn btn-success btn-prima" style="margin-right:5px" />
+        </form>
+    }
+
+    <div class="dirBlocks1">
+
+        <div class="dirBlck1" onclick=location.href='/Directions' style="cursor: pointer;" &gt;&lt;/div&gt;>
+            <span style="color:#337ab7">Направления<br />
+        </div>
+        <div class="dirBlck2" onclick="location.href='/Employees/';" style="cursor: pointer;" &gt;&lt;/div&gt;>
+            <span style="color:#337ab7">Сотрудники<br />
+        </div>
     </div>
-    <div class="LineH2" onclick="location.href='/Employees/';" style="cursor: pointer;"&gt;&lt;/div&gt;>
-                         <span style="color:#337ab7">Сотрудники<br />
-    </div>
+
 </div>
