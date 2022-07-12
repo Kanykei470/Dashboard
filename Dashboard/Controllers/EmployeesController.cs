@@ -154,10 +154,3 @@ namespace Dashboard.Controllers
     }
 }
 
-// namespace DevExtreme.NETCore.Demos.Controllers {
-//     public class ChartsController : Controller {
-//         public ActionResult Doughnut() {
-//             return View(SampleData.PopulationData);
-//         }
-//     }
-// }
