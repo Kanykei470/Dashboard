@@ -16,13 +16,13 @@
 <a class="back" href="javascript: history.go(-1)"><img src="https://cdn-icons-png.flaticon.com/512/130/130882.png" height="4%" width="4%"/></a>
 <h1 class="text-center">Задачи</h1>
 <h5 class="text-center" >
-    <input id="ID" readonly>
+     Задач:@Model.Count()
 </h5>
 <style>
     #ID{
         border: none;
         align-self: center;
-        background-color:#72b9f3;
+        @* background-color:#72b9f3; *@
         outline:none;
         text-align: center;
     }
@@ -37,13 +37,14 @@
     });
 </script>
 
-<div class="d-md-inline-flex">
-    <a asp-action="Create">Create New</a>
+@* <div class="d-md-inline-flex"> *@
     <input  type="text" 
                class="form-control" 
                placeholder="Что ищем?"
                id="txtInputTable">
-</div>
+@* </div> *@
+
+<br>
 
 <table class="TasksTable1">
     <thead>

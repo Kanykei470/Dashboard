@@ -9,31 +9,19 @@
             height="4%" width="4%" /></a>
     <h1 class="text-center">Проекты</h1>
     <h5 class="text-center">
-        <input id="ID" readonly>
+         Проектов:@Model.Count()
     </h5>
 
     <style>
         #ID {
             border: none;
             align-self: center;
-            background-color: #72b9f3;
+            @* background-color: #72b9f3; *@
             outline: none;
             text-align: center;
         }
     </style>
 </div>
-
-<script>
-    addEventListener('DOMContentLoaded', function () {
-        var tr = document.querySelectorAll('tr');
-        let input = document.querySelector("#ID");
-        input.value = "Проектов: " + tr.length;
-    });
-</script>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 
 <form name="forma" asp-controller="Milestones" asp-action="Index" method="get">
     <input type="hidden" name="Id" id="Idinput">
@@ -52,7 +40,7 @@
 @{
     <div class="container-fluid" style="margin-top:10px">
 
-        <div class="otodvigalka">
+        @* <div class="otodvigalka">
 
             <div class="infos">
 
@@ -78,7 +66,7 @@
 
             </div>
 
-        </div>
+        </div> *@
 
         <div @*class="row display-flex"*@ style="cursor: pointer;" &gt;&lt;/div&gt;>
             <div class="gridCss">
@@ -86,12 +74,12 @@
                 {
                     @* <table>
                         <tr> *@
-                    <div class="projctsMain">
-                        <span class="nameOf1" style="color:#337ab7">@pur.Name<br />
-                            <input type="button" value="B" onclick="func(@pur.Id)">
+                    <div class="projctsMain" style="background: #CDDBBF linear-gradient(to top, #b3c4a3 @pur.Completion%, transparent 0%);">
+                        <span class="nameOf1" @*style="color:#337ab7"*@>@pur.Name<br />
+                            <input type="button" onclick="func(@pur.Id)">
                             <div class="comPri">
-                                <span style="color:indianred">Completion : @pur.Completion</span>
-                                <span style="color:indianred">Priority : @pur.Priority</span><br />
+                                <span class="completion" @*style="color:indianred"*@>@*Completion : *@ @pur.Completion%</span>
+                                <span class="priority" @*style="color:indianred"*@>@*Priority : *@ @pur.Priority</span><br />
                             </div>
                             @* <span style="color:indianred">Id : </span>@pur.Id<br />
                                 <input type="hidden" id="Idpr" value="@pur.Id"> *@

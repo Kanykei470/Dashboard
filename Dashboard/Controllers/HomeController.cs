@@ -21,12 +21,6 @@ namespace Dashboard.Controllers
         {
             _context = context;
         }
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //     _logger = logger;
-        // }
 
         public IActionResult Index()
         {
@@ -47,7 +41,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         public IActionResult Upload(IFormFile formFile, decimal? id)
         {
-            if (ModelState.IsValid)
+             if (ModelState.IsValid)
             {
                 String ext = Path.GetExtension(formFile.FileName);
                 if (formFile.Length > 0)
@@ -94,7 +88,7 @@ namespace Dashboard.Controllers
 
                                         DashboardContext modelContext = new DashboardContext();
                                         modelContext.Tasks.Add(t);
-                                        modelContext.SaveChanges();
+                                        modelContext.SaveChangesAsync();
                                         personalchecks.Add(t);
                                     }
                                     catch (Exception ex)
@@ -102,20 +96,18 @@ namespace Dashboard.Controllers
                                         Console.WriteLine(ex.Message);
                                     }
                                 }
-                            }
-                            
+                            }    
                         }
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
                         }
                     }
-                    
                }
             }
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         } 
-
+        
     }
 }

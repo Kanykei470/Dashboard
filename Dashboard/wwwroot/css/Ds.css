@@ -1,14 +1,16 @@
 body {
-    background-color: #72b9f3 !important;
+    background-color: #F9EBC8 !important;
 }
 
 header {
-    background-color: #FAF4B7 !important;
+    /* background-color: #FAF4B7 !important; */
+    background-color: #A0BCC2 !important;
 }
 
 
 h1 {
-    color: #FFE162;
+    /* color: #FFE162; */
+    color: #af553c;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Семейство шрифтов */
     font-weight: lighter; /* Нормальное начертание текста  */
 }
@@ -104,6 +106,9 @@ button{
     gap: 10%;
     height: 500px;
     padding-top: 1%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    font-size: 2.5rem;
 }
 
 .dirBlck1 {
@@ -153,24 +158,43 @@ button{
 }
 
 
-.TasksTable1{
-    position: absolute;
-    margin-left: -5%;
-    width: 90%;
+.EmployeesTable1 {
+    /* position: absolute; */
+    position: relative;
+    margin-left: -1.5%;
+    width: 100%;
     /*height: 50%;*/
     border-collapse: collapse;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     border-radius: 10px;
     overflow: hidden;
-    background-color: #FFF9E9;
+    background-color: #000000;
+}
+
+.TasksTable1 {
+    /* position: absolute; */
+    position: relative;
+    margin: 0 auto;
+    /* margin-left: -0.5%;
+    width: 100%; */
+    /*height: 50%;*/
+    border-collapse: collapse;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000000;
 }
 
 /* @media(){
     -webkit-animation: ;
 } */
 
+.TasksTable1 tbody{
+    background-color: #FFF9E9;
+}
+
 .TasksTable1 thead{
-    background-color: #232535;
+    background-color: #000000;
     text-align: center;
     color: beige;
     padding: 15px 20px;
@@ -194,22 +218,22 @@ button{
 
 .TasksTable1 td{
     text-align: center;
-    padding: 10px 15px;
-    border-right: 1px solid #232535;
+    padding: 10px;
+    border-right: 1px solid #000000;
 }
-
 
 .milestnsMain {
     width: 100%;
     height: 200px;
     /*margin-bottom: 5px;
     margin-right: 5px;*/
-    border: 1px solid #232535;
-    background-color: #FFF9E9;
+    border: 1px solid #000000;
+    background-color: #DAE5D0;
     border-radius: 10px;
     padding-left: 1%;
     padding-right: 1%;
     position: relative;
+    /* background: #FFF9E9 linear-gradient(to top, #DE8971 50%, transparent 0%); */
 }
 
 .priority {
@@ -229,24 +253,26 @@ button{
     height: 150px;
     /*margin-bottom: 5px;
     margin-right: 5px;*/
-    border: 1px solid #232535;
-    background-color: #FFF9E9;
+    border: 1px solid #000000;
+    background-color: #cddbbf;
     border-radius: 10px;
     padding-left: 1%;
     padding-right: 1%;
     position: relative;
+    /* background: #FFF9E9 linear-gradient(to top, #DE8971 50%, transparent 0%); */
 }
 
 .directnsMain {
     width: 100%;
     min-height: 150px;
     /*margin-bottom: 5px;*/
-    border: 1px solid #232535;
-    background-color: #FFF9E9;
+    border: 1px solid #000000;
+    background-color: #bee1e2;
     border-radius: 10px;
     padding-left: 1%;
     padding-right: 1%;
     position: relative;
+    /* background: #FFF9E9 linear-gradient(to top, #DE8971 30%, transparent 0%); */
 }
 
 .nameOf1 {
@@ -422,6 +448,15 @@ button{
     grid-template-columns: 1fr;*/
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.gridForDirCss {
+    /*height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr;*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 5px;
 }
 
